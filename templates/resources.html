@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+
+{% block styles %}
+{{super()}}
+<style>
+    h1   {color: black; text-align: center; font-size: 400%;}    
+</style>
+{% endblock %}
+
+{% block active %}
+
+<li class="nav-item">
+    <a class="nav-link" href="/about/">ABOUT</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="/resources/">RESOURCES</a>
+</li>
+<!-- <a class="nav-link" href="/games/">GAMES<span class="sr-only">(current)</span></a> -->
+{% endblock %}
+
+{% block header %}
+<h1>hello!</h1>
+{% endblock %}
+
+{% block content %}
+    
+{% endblock %}

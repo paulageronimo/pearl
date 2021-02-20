@@ -1,0 +1,53 @@
+{% extends 'base.html'%}
+
+{% block styles %}
+{{super()}}
+<style>
+    h1   {color: black; text-align: center; font-size: 400%;}    
+    body { background-image: }
+</style>
+{% endblock %}
+
+{% block active %}
+
+<li class="nav-item">
+    <a class="nav-link" href="/about/">a b o u t  </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="/resources/">r e s o u r c e s  </a>
+</li>
+<!-- <a class="nav-link" href="/games/">GAMES<span class="sr-only">(current)</span></a> -->
+{% endblock %}
+
+{% block header %}
+<h1></h1>
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col"><p>    .</p></div>
+  </div>
+  <div class="row">
+    <div class="col"><p>    .</p></div>
+  </div>
+  <div class="row">
+    <div class="col"><p>    .</p></div>
+  </div>
+  <div class="row">
+  </div>
+    <div class = "padding-top">
+      <div class="row">
+        <div class="col-4">
+          <img src="url_for('static', filename='corgihome.gif'" alt="corgi running" width="100%" height="100%">
+        </div>
+        <div class="col-8">
+          <h1>welcome to m u s e</h1>
+          <p>at m u s e, we encourage music guided meditation. click the button below to begin your meditative journey.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+     <button href="/start/" type="button" class="btn btn-outline-dark">  m u s e  </button>
+     
+  </div>
+{% endblock %}
