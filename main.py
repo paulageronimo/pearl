@@ -1,6 +1,7 @@
 from flask import Flask, redirect, url_for, render_template, request, jsonify
 from flask_bootstrap import Bootstrap
 from beatCount import countBeats
+from playsound import playsound
 
 # declare constants
 HOST = '0.0.0.0'
@@ -37,14 +38,16 @@ def med():
     #request.form
     # values=countBeats('https://open.spotify.com/track/6K4t31amVTZDgR3sKmwUJJ?si=S53B-lXPR9SFaku_RnzLsg', '4-4-8') 
     songURL = request.form['songURL']
+    #embedURL = songURL[]
     breathTechnique = request.form['breathTechnique']
     values=countBeats(songURL, breathTechnique)
-    return render_template('med.html' ,inhale=values['inhale'], hold=values['hold'], exhale=values['exhale'])
+    return render_template('med.html' ,inhale=values['inhale'], hold=values['hold'], exhale=values['exhale'], songURL=songURL, breathTechnique=breathTechnique)
   else:
     songURL = request.args.get['songURL']
     breathTechnique = request.args.get['breathTechnique']
     values=countBeats(songURL, breathTechnique)
-    return render_template('med.html' ,inhale=values['inhale'], hold=values['hold'], exhale=values['exhale'])
+    return render_template('med.html' ,inhale=values['inhale'], hold=values['hold'], exhale=values['exhale'], songURL=songURL, breathTechnique=breathTechnique)
+  playsound('songURL', block=False)
 
 #sample api endpoint
 @app.route('/api/test', methods=['GET', 'POST'])

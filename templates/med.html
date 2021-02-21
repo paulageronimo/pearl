@@ -10,24 +10,194 @@
   justify-content: center;
   align-items: center;
 }
-.human-heart {
+
+#cont {
+       background-color:#fdf7ce;
+    -webkit-animation: mover 2s infinite  alternate;
+    animation: mover 2s infinite  alternate;
+    }
+    @-webkit-keyframes mover {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-20px); }
+    }
+    @keyframes mover {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-20px); }
+    }
+
+
+.human-heart-425 {
   margin: 2em;
-  animation: {{ inhale + exhale + hold }}s infinite beatHeart;
+  animation: {{ inhale + exhale + hold }}s infinite beatHeart-425;
+}
+.human-heart-478 {
+  margin: 2em;
+  animation: {{ inhale + exhale + hold }}s infinite beatHeart-478;
+}
+.human-heart-448 {
+  margin: 2em;
+  animation: {{ inhale + exhale + hold }}s infinite beatHeart-448;
 }
 
-@keyframes beatHeart {
-  {{inhale}}s {
+@keyframes beatHeart-425 {
+  0% {
     transform: scale(.5);
   }
-  
-  {{hold}}s {
-    transform: scale(.6);
+  4*100/11% {
+    transform: scale(.75);
   }
   
-  {{exhale}}s {
+  7*100/11% {
+    transform: scale(.75);
+  }
+  
+  100% {
     transform: scale(.5);
   }
 }
+
+@keyframes beatHeart-478 {
+  0% {
+    transform: scale(.5);
+  }
+  4*100/19% {
+    transform: scale(.75);
+  }
+  
+  11*100/19% {
+    transform: scale(.75);
+  }
+  
+  100% {
+    transform: scale(.5);
+  }
+}
+
+@keyframes beatHeart-448{
+   0% {
+    transform: scale(.5);
+  }
+  25% {
+    transform: scale(.75);
+  }
+  
+  50% {
+    transform: scale(.75);
+  }
+  
+  100% {
+    transform: scale(.5);
+  }
+}
+/* 
+*
+*         LETTER STUFF
+*
+*
+*/
+#wrapper {
+
+	height: 100px;
+	color: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#hi {
+	animation: pulse {{ inhale + exhale + hold }}s infinite;
+}
+
+
+
+@keyframes pulse {
+	0% {
+	color: #051E3E;
+	}
+	10% {
+		color: #051E3E;
+	}
+	30% {
+		color: white;
+	}
+	50% {
+		color: #051E3E;
+	}
+	60% {
+		color: #051E3E;
+	}
+	80% {
+		color: white;
+	}
+	100% {
+		color: #051E3E;
+	}
+}
+
+#hi-425:after {
+	content: "";
+	animation: spin-425 {{ inhale + exhale + hold }}s infinite linear;
+}
+#hi-478:after {
+	content: "";
+	animation: spin-478 {{ inhale + exhale + hold }}s infinite linear;
+}
+#hi-448:after {
+	content: "";
+	animation: spin-448 {{ inhale + exhale + hold }}s infinite linear;
+}
+
+
+@keyframes spin-425{
+    0% {
+    content: "inhale";
+  }
+  4*100/11% {
+    content: "hold";
+  }
+  
+  7*100/11% {
+    content: "exhale";
+  }
+  
+  100% {
+    content: "exhale";
+  }
+}
+@keyframes spin-478{
+   0% {
+    content: "inhale";
+  }
+  4*100/19% {
+    content: "hold";
+  }
+  
+  11*100/19% {
+    content: "exhale";
+  }
+  
+  100% {
+    content: "exhale";
+  }
+}
+@keyframes spin-448{
+     0% {
+    content: "inhale";
+  }
+  25% {
+    content: "hold";
+  }
+  
+  50% {
+    content: "exhale";
+  }
+  
+  100% {
+    content: "exhale";
+  }
+}
+
+
 </style>
 {% endblock %}
 
@@ -43,20 +213,88 @@
 {% endblock %}
 
 {% block header %}
-<h1>hello!</h1>
+<div class="text-white">
+  <div class="row">
+    <div class="col"><p>.</p></div>
+  </div>
+  <div class="row">
+    <div class="col"><p>.</p></div>
+  </div>
+</div>
+<h1 styles="background-color:#fdf7ce;">relax with m u s e</h1>
 {% endblock %}
+ 
 
 {% block content %}
-  <h1>{{ inhale}}</h1>
-  <h1>{{ hold }}</h1>
-  <h1>{{ exhale }}</h1>
-  
-    <div id="heart">
-        <div class="container">
-    <img src="https://blush.design/api/download?shareUri=mPV5Z1hs2&w=800&h=800&fm=png" class="human-heart" alt="human heart" />
+   {% if breathTechnique == '4-2-5' %}
+   
+      <div class="container" styles="background-color:#fdf7ce;">
+        <div class="row">
+          <div class="col">
+        <img src="https://blush.design/api/download?shareUri=mPV5Z1hs2&w=800&h=800&fm=png" class="human-heart-425" alt="human heart" />
+      </div>
+      <div class="col">
+<div id="wrapper">
+		<p id="hi-425"></p>
+	</div>
+        </div>
+        </div>
+        {% endif %}
+  {% if breathTechnique == '4-7-8' %}
+  <div class="container" styles="background-color:#fdf7ce;">
+        <div class="row">
+          <div class="col">
+        <img src="https://blush.design/api/download?shareUri=mPV5Z1hs2&w=800&h=800&fm=png" class="human-heart-478" alt="human heart" />
+      </div>
+      <div class="col">
+      <div id="wrapper">
+		<p id="hi-478"></p>
+	</div>
   </div>
+      </div>
+{% endif %}
+  {% if breathTechnique == '4-4-8' %}
+ <div class="container" styles="background-color:#fdf7ce;">
+        <div class="row">
+          <div class="col">
+        <img src="https://blush.design/api/download?shareUri=mPV5Z1hs2&w=800&h=800&fm=png" class="human-heart-448" alt="human heart" />
+      </div>
+      </div>
+      <div class="col">
+      <div id="wrapper">
+        <p id="hi-448"></p>
+      </div>
+      </div>
+      </div>
 
-  <audio src="" autoplay loop></audio>
+  {% endif %}
+
+
+
+<div class="container" id="cont"  style="margin-bottom:300px">
+<div class="row">
+  
+  <div class="col">
+
+    <iframe src={{songURL}} width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
+      <audio controls autoplay>
+  <source src="{{songURL}}" autoplay loop>
+</audio>
     </div>
+    <div class="col-6">
+      <h4>data:</h4>
+<h5>Spotify URL: {{songURL}}</h5>
+<h5>Breathing Pattern: {{breathTechnique}}</h5>
+<h5>inhale (s): {{inhale}}</h5>
+<h5>hold (s): {{hold}}</h5>
+<h5>exhale (s): {{exhale}}</h5>
+    </div>
+    <div class="col">
+      .
+    </div>
+
+</div>
+    
 {% endblock %}
 

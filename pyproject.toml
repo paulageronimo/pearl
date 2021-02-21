@@ -15,6 +15,7 @@ icons = "^1.1"
 librosa = "^0.8.0"
 spotipy = "^2.16.1"
 json5 = "^0.9.5"
+playsound = "^1.2.2"
 
 [tool.poetry.dev-dependencies]
 
