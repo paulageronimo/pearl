@@ -1,0 +1,59 @@
+{% extends 'base.html'%}
+
+{% block styles %}
+{{super()}}
+<style>
+    h1   {color: black; text-align: center; font-size: 400%;}    
+  /* HEARTBEAT ANIMATION */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.human-heart {
+  margin: 2em;
+  animation: 1.75s infinite beatHeart;
+}
+
+@keyframes beatHeart {
+  0% {
+    transform: scale(.5);
+  }
+  
+  50% {
+    transform: scale(.6);
+  }
+  
+  100% {
+    transform: scale(.5);
+  }
+}
+</style>
+{% endblock %}
+
+{% block active %}
+
+<li class="nav-item">
+    <a class="nav-link" href="/about/">a b o u t  </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="/resources/">r e s o u r c e s  </a>
+</li>
+<!-- <a class="nav-link" href="/games/">GAMES<span class="sr-only">(current)</span></a> -->
+{% endblock %}
+
+{% block header %}
+<h1>hello!</h1>
+{% endblock %}
+
+{% block content %}
+    <div id="heart">
+        <div class="container">
+    <img src="https://blush.design/api/download?shareUri=mPV5Z1hs2&w=800&h=800&fm=png" class="human-heart" alt="human heart" />
+  </div>
+
+  <audio src="" autoplay loop></audio>
+    </div>
+{% endblock %}
+
+

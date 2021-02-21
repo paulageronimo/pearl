@@ -10,6 +10,11 @@ flask-bootstrap = "^3.3.7"
 flask = "^1.1.2"
 bootstrap4 = "^0.1.0"
 pyflakes = "^2.2.0"
+aubio = "^0.4.9"
+icons = "^1.1"
+librosa = "^0.8.0"
+spotipy = "^2.16.1"
+json5 = "^0.9.5"
 
 [tool.poetry.dev-dependencies]
 

@@ -1,0 +1,79 @@
+{% extends 'base.html'%}
+
+{% block styles %}
+{{super()}}
+<style>
+    h1   {color: black; text-align: center; font-size: 400%;}    
+    label { display: block;
+        font: 1rem 'Fira Sans', sans-serif;
+    }
+
+    input, label {
+        margin: .4rem 0;
+    }
+</style>
+{% endblock %}
+
+{% block active %}
+
+<li class="nav-item">
+    <a class="nav-link" href="/about/">a b o u t  </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="/resources/">r e s o u r c e s  </a>
+</li>
+<!-- <a class="nav-link" href="/games/">GAMES<span class="sr-only">(current)</span></a> -->
+{% endblock %}
+
+{% block header %}
+<div class="text-white">
+  <div class="row">
+    <div class="col"><p>.</p></div>
+  </div>
+  <div class="row">
+    <div class="col"><p>.</p></div>
+  </div>
+</div>
+<h1>input a song url + breath preference...</h1>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row" style="margin-top:20px;">
+    <form style="margin-top:30px;">
+      <div class="col-8">
+      <input type="url" name="url" id="url" placeholder="https://open.spotify.com/track/...." pattern="https://.*" size="80" required> <br>
+      <!-- https://open.spotify.com/track/6K4t31amVTZDgR3sKmwUJJ?si=ygbtHOu2T4a5Iouga0YHtA -->
+      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+      <option selected>Open this select menu</option>
+      <option value="4-1-4">4-1-4</option>
+      <option value="4-7-8">4-7-8 *recommended*</option>
+      <option value="5-1-5">5-1-5</option>
+    </select>
+      <button class="btn btn-secondary btn-sm">✔️</button>
+    </form>
+    </div>
+  </div>
+
+
+  <div class="text-white">
+  <div class="row">
+    <div class="col"><p>.</p></div>
+  </div>
+  </div>
+
+  <div class="row" >
+    <p style="font-size: 75%; font-style:italic;">Need help getting spotify URL? Click <a href="https://community.spotify.com/t5/Desktop-Windows/How-copy-track-link-on-Spotify/td-p/2404298">here</a> </p>
+  </div>
+  <div class="text-white">
+    <div class="row">
+      <div class="col"><p>.</p></div>
+    </div>
+    <div class="row">
+      <div class="col"><p>.</p></div>
+    </div>
+  </div>
+
+</div>
+    
+{% endblock %}
