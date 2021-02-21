@@ -5,7 +5,8 @@
 <style>
     h1   {color: black; text-align: center; font-size: 400%;}    
 
-    img {
+    #cont {
+      background-color:#fdf7ce;
     -webkit-animation: mover 2s infinite  alternate;
     animation: mover 2s infinite  alternate;
     }
@@ -38,6 +39,7 @@
 {% endblock %}
 
 {% block content %}
+<div class="container" style="margin-top:30px" id="cont">
 <div class="text-white">
   <div class="row">
     <div class="col"><p>.</p></div>
@@ -55,13 +57,12 @@
         <div class="col-8">
           <h1>welcome to <br> m u s e</h1>
           <p style="margin-top:20px;">at muse, we encourage music guided meditation. are you ready to begin your meditative journey?</p>
-          <a href="/start/" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">ready.</a>
+          <a href="/start/" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true" style="margin-left:44%; margin-bottom:20px; margin-top:20px;">ready.</a>
     
         </div>
       </div>
       </div>
     </div>
-    
-     
+  </div>
   </div>
 {% endblock %}

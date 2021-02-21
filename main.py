@@ -1,6 +1,6 @@
 from flask import Flask, redirect, url_for, render_template, request, jsonify
 from flask_bootstrap import Bootstrap
-# from beatCount import 
+from beatCount import countBeats
 
 # declare constants
 HOST = '0.0.0.0'
@@ -26,30 +26,27 @@ def resources():
     return render_template("resources.html")
 
 #                                                actual app components
-@app.route('/start/')
+@app.route('/start/', methods=['GET','POST'])
 def start():
-    return render_template("start.html")
+  return render_template("start.html")
 
-
-
-#@app.route('/meditating/', methods=['GET', 'POST'])
-@app.route('/meditating/')
+#print(request.form)
+@app.route('/meditating/', methods=['GET','POST'])
 def med():
-  # if request.method == "POST":
-  #   #beats = countBeats()
-  #   return redirect(url_for("process"))
-  return render_template("med.html")
+  if request.method == 'POST':
+    #request.form
+    # values=countBeats('https://open.spotify.com/track/6K4t31amVTZDgR3sKmwUJJ?si=S53B-lXPR9SFaku_RnzLsg', '4-4-8') 
+    songURL = request.form['songURL']
+    breathTechnique = request.form['breathTechnique']
+    values=countBeats(songURL, breathTechnique)
+    return render_template('med.html' ,inhale=values['inhale'], hold=values['hold'], exhale=values['exhale'])
+  else:
+    songURL = request.args.get['songURL']
+    breathTechnique = request.args.get['breathTechnique']
+    values=countBeats(songURL, breathTechnique)
+    return render_template('med.html' ,inhale=values['inhale'], hold=values['hold'], exhale=values['exhale'])
 
-# @app.route('/process/', methods=['GET', 'POST'])
-# def process():
-#   if request.method == "POST":
-#     #if()
-#     #beats = countBeats()
-#     return redirect(url_for("process"))
-#   return render_template("process.html")
-
-
-# sample api endpoint
+#sample api endpoint
 @app.route('/api/test', methods=['GET', 'POST'])
 def test():
     if request.method == 'POST':
@@ -60,7 +57,6 @@ def test():
         return jsonify({'error'})
     else:
         return jsonify({'test': 'success'})
-
 
 if __name__ == '__main__':
     app.run(host=HOST, debug=True, port=PORT)

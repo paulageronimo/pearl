@@ -4,6 +4,19 @@
 {{super()}}
 <style>
     h1   {color: black; text-align: center; font-size: 400%;}    
+
+        #cont {
+    -webkit-animation: mover 2s infinite  alternate;
+    animation: mover 2s infinite  alternate;
+    }
+    @-webkit-keyframes mover {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-20px); }
+    }
+    @keyframes mover {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-20px); }
+    }
     label { display: block;
         font: 1rem 'Fira Sans', sans-serif;
     }
@@ -34,23 +47,24 @@
     <div class="col"><p>.</p></div>
   </div>
 </div>
-<h1>input a song url + breath preference...</h1>
+<h1 id="cont">input a song url + breathing pattern preference</h1>
 {% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container" style="margin-top:30px; background-color:#fdf7ce;" id="cont">
   <div class="row" style="margin-top:20px;">
-    <form style="margin-top:30px;">
+    <form style="margin-top:30px;" action="/meditating/" method="POST">
       <div class="col-8">
-      <input type="url" name="url" id="url" placeholder="https://open.spotify.com/track/...." pattern="https://.*" size="80" required> <br>
+      <input name="songURL" id="url" placeholder="https://open.spotify.com/track/...." pattern="https://.*" size="80" required> <br>
       <!-- https://open.spotify.com/track/6K4t31amVTZDgR3sKmwUJJ?si=ygbtHOu2T4a5Iouga0YHtA -->
-      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+      </br>
+      <select name="breathTechnique" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
       <option selected>Open this select menu</option>
-      <option value="4-1-4">4-1-4</option>
+      <option value="4-2-5">4-2-5</option>
       <option value="4-7-8">4-7-8 *recommended*</option>
-      <option value="5-1-5">5-1-5</option>
+      <option value="4-4-8">4-4-8</option>
     </select>
-      <button class="btn btn-secondary btn-sm">✔️</button>
+      <button class="btn btn-secondary btn-sm" type="submit" value="Submit">✔️</button>
     </form>
     </div>
   </div>
@@ -77,3 +91,8 @@
 </div>
     
 {% endblock %}
+
+
+
+
+

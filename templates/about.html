@@ -4,32 +4,51 @@
 {{super()}}
 <style>
     h1   {color: black; text-align: center; font-size: 400%;}    
+    
+     #cont {
+       background-color:#fdf7ce;
+    -webkit-animation: mover 2s infinite  alternate;
+    animation: mover 2s infinite  alternate;
+    }
+    @-webkit-keyframes mover {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-20px); }
+    }
+    @keyframes mover {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-20px); }
+    }
 </style>
 {% endblock %}
 
 {% block active %}
 
-<li class="nav-item">
-    <a class="nav-link" href="/about/">a b o u t  </a>  
+<li class="nav-item active">
+    <a class="nav-link" href="/about/">a b o u t <span class="sr-only">(current)</span></a> 
 </li>
 <li class="nav-item">
     <a class="nav-link" href="/resources/">r e s o u r c e s  </a>
 </li>
 
+
 <!-- <a class="nav-link" href="/games/">GAMES<span class="sr-only">(current)</span></a> -->
 {% endblock %}
 
 {% block header %}
-<h1>About Muse</h1>
+
 {% endblock %}
 
 {% block content %}
 
-
+<div class="container" style="margin-top:30px" id="cont">
 <div class="row">
-  <div class="col">
-    <p> In light of COVID-19, the need for personal wellbeing and self care is greater than ever before. Hundreds and thousands of people worldwide are reported feeling anxious, stressed and unhappy during quarantine. That is why we have decided to create a hack dedicated to supporting mental health.  </p> 
-      <p> Introducing Muse, a verb meaning to be absorbed in thought. One of the most effective ways of stress management (and overlooked) tool is our breathing. Using Muse, you are able to play your favourite song(s) and implement our selected breathing exercise techniques. </p> 
+  <div class="col vertical-center rightcol" style="">
+    <h1 style="margin-top:25%;">About mUSe</h1>
+    <img src="https://media0.giphy.com/media/M9fijTW9qPuxBqZYqc/giphy.gif" alt="note gif" width="25%" style="margin-left:35%;">
+  </div>
+  <div class="col" style="margin-top:20px; margin-bottom:20px;">
+    <p> In light of COVID-19, the need for personal wellbeing and self care is greater than ever before. Hundreds and thousands of people worldwide have reported feeling anxious, stressed and unhappy during quarantine. That is why we have decided to create a hack dedicated to supporting mental health.  </p> 
+      <p> Introducing Muse, inspired from a verb meaning to be absorbed in thought. One of the most effective (and overlooked) ways of stress management is controlled breathing. Using Muse, you are able to play your favourite song(s) and implement your selected breathing exercise techniques. </p> 
     <p> Deep breathing techniques helps your wellbeing in various ways: </p>
     <ul>
       <li>It can slow the heartbeat and lower or stabilize blood pressure</li>
@@ -37,5 +56,6 @@
       <li>Reduce symptoms of anxiety</li>
     </ul> 
   </div>
+</div>
 </div>
 {% endblock %}

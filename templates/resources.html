@@ -4,24 +4,67 @@
 {{super()}}
 <style>
     h1   {color: black; text-align: center; font-size: 400%;}    
+    
+     #cont {
+       background-color:#fdf7ce;
+    -webkit-animation: mover 2s infinite  alternate;
+    animation: mover 2s infinite  alternate;
+    }
+    @-webkit-keyframes mover {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-20px); }
+    }
+    @keyframes mover {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-20px); }
+    }
 </style>
 {% endblock %}
 
 {% block active %}
 
 <li class="nav-item">
-    <a class="nav-link" href="/about/">a b o u t  </a>
+    <a class="nav-link" href="/about/"> a b o u t </a>
 </li>
-<li class="nav-item">
-    <a class="nav-link" href="/resources/">r e s o u r c e s  </a>
+<li class="nav-item active">
+    <a class="nav-link" href="/resources/">r e s o u r c e s <span class="sr-only">(current)</span></a>
 </li>
-<!-- <a class="nav-link" href="/games/">GAMES<span class="sr-only">(current)</span></a> -->
+
+
 {% endblock %}
 
 {% block header %}
-<h1>hello!</h1>
+
 {% endblock %}
 
 {% block content %}
-    
+
+<div class="container" style="margin-top:30px" id="cont">
+<div class="row">
+  <div class="col vertical-center rightcol" style="">
+    <h1 style="margin-top:25%;">resources</h1>
+    <img src="https://media0.giphy.com/media/M9fijTW9qPuxBqZYqc/giphy.gif" alt="note gif" width="25%" style="margin-left:35%;">
+  </div>
+  <div class="col" style="margin-top:20px; margin-bottom:20px;">
+    <h3>Improving Your Muse Experience</h3> 
+    <ul>
+      <li><p><a href="#" class="text-white bg-dark">White link</a></p></li>
+      <li><p><a href="#" class="text-white bg-dark">White link</a></p></li>
+      <li><p><a href="https://www.verywellmind.com/how-to-practice-music-meditation-3144791#:~:text=Combining%20music%20with%20meditation%20can,than%20other%20forms%20of%20practice." class="text-white bg-dark">How to Practice Music Meditation</a></p></li>
+    </ul>
+    <h3>Information on Meditation</h3> 
+    <ul>
+      <li><p><a href="https://www.healthline.com/health/box-breathing" class="text-white bg-dark">What is Boxed Breathing?</a></p></li>
+      <li><p><a href="#" class="text-white bg-dark">White link</a></p></li>
+      <li><p><a href="#" class="text-white bg-dark">White link</a></p></li>
+    </ul>
+    <h3>Hotlines</h3> 
+    <ul>
+      <li><p><a href="#" class="text-white bg-dark">White link</a></p></li>
+      <li><p><a href="#" class="text-white bg-dark">White link</a></p></li>
+      <li><p><a href="#" class="text-white bg-dark">White link</a></p></li>
+    </ul>
+  </div>
+</div>
+</div>
 {% endblock %}
